@@ -9,4 +9,8 @@ public class FrontPageController {
     public String index(){
         return "index";
     }
+
+
+
+
 }

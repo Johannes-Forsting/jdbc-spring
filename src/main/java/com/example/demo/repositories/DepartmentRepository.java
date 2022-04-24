@@ -21,20 +21,26 @@ public class  DepartmentRepository implements CRUDInterface<Department>{
     }
 
     @Override
-    public List<Department> getAllEntities() {
+    public ArrayList<Department> getAllEntities() {
+        ArrayList<Department> departments = new ArrayList<Department>();
+
         try {
             Connection conn = DatabaseConnectionManager.getConnection();
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM departments");
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                //Indsætte i en liste
+                int departmentID = rs.getInt("department_number");
+                String departmentName = rs.getString("department_name");
+                String location = rs.getString("location");
+                Department currentDepartment = new Department(departmentID, departmentName, location);
+                departments.add(currentDepartment);
             }
         }
         catch(SQLException e){
             e.printStackTrace();
             System.out.println("Something wrong with database");
         }
-        return null;
+        return departments;
     }
 
     @Override
