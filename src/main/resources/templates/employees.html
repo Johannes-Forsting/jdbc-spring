@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Employees</title>
-    <link rel="stylesheet" th:href="@{style.css}"  type="text/css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div th:replace="fragments/general.html :: header()"></div>
@@ -18,7 +18,7 @@
             <td th:text="${employee.getSalary()}"></td>
             <td th:text="${employee.getCommision()}"></td>
             <td th:text="${employee.getDepartmentNumber()}"></td>
-        </tr>
+
     </table>
 </body>
 </html>

@@ -2,11 +2,6 @@ table, th, td {
     border: 1px solid black;
 }
 
-h1{
-    font-family: bold;
-    color: red;
-}
-
 .header{
     width: 100%;
     height: 5%;
@@ -16,9 +11,9 @@ h1{
     margin: auto;
 }
 
-.test{
-    font-size: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: red;
+.buttonsForHeader{
+    width: 200px;
+    height: 40px;
+    background-color: #d78585;
+    font-family: bold;
 }

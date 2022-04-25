@@ -4,26 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Find employees</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div th:replace="fragments/general.html :: header()"></div>
 
     <h1>Here you can find a specific employee by the employee ID</h1>
 
-    <form action="/findEmployeeByID">
+    <form action="/findEmployee">
         <input name="ID">
         <input type="submit" value="Show me employee">
     </form>
     <table>
         <tr
-                th:each="employee : ${employeesByID}">
+                th:each="employee : ${employees}">
             <td th:text="${employee.getJob()}"></td>
             <td th:text="${employee.getManager()}"></td>
             <td th:text="${employee.getHireDate()}"></td>
             <td th:text="${employee.getSalary()}"></td>
             <td th:text="${employee.getCommision()}"></td>
             <td th:text="${employee.getDepartmentNumber()}"></td>
-        </tr>
+
     </table>
 
 </body>

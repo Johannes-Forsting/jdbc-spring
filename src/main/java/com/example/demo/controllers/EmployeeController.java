@@ -26,21 +26,34 @@ public class EmployeeController {
     }
 
     @RequestMapping("/findEmployee")
-    public String findEmployeeByID(WebRequest dataFromForm, Model employeesByID){
-
+    public String findEmployeeByID(WebRequest dataFromForm, Model employeeByID){
+        EmployeeRepository employee = new EmployeeRepository();
         int employeeID = 0;
         try {
             employeeID = Integer.parseInt(dataFromForm.getParameter("ID"));
             System.out.println(employeeID);
         }
         catch (Exception e){
-
+            System.out.println(e);
         }
-        Employee employeeByID = new Employee(2, "test", "test", 2, "1980-12-17", 2, 2, 2);
+        //Employee tester = new Employee(2, "test", "test", 2, "1980-12-17", 2, 2, 2);
         ArrayList<Employee> employees = new ArrayList<Employee>();
-        employees.add(employeeByID);
-        employeesByID.addAttribute("employeesByID", employees);
+        if(!(employeeID == 0)) {
+            Employee tester = employee.getSingleEntityById(employeeID);
+
+            if(!(tester == null)) {
+                employees.add(tester);
+            }
+        }
+
+        employeeByID.addAttribute("employees", employees);
         return "findEmployee";
+    }
+
+    @GetMapping("/makeEmployee")
+    public String makeEmployee(Model model){
+
+        return "makeNewEmployee";
     }
 
 

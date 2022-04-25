@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Fragments</title>
-    <link rel="stylesheet" th:href="@{style.css}" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div th:fragment="header()">
     <div class="header">
-        <form action="/"><input type="submit" value="Frontpage" /></form>
-        <form action="/employees"><input type="submit" value="See all employees" /></form>
-        <form action="/departments"><input type="submit" value="See all departments" /></form>
-        <form action="/findEmployee"><input type="submit" value="Find employee by ID" /></form>
+        <form action="/"><input class="buttonsForHeader" type="submit" value="Frontpage" /></form>
+        <form action="/employees"><input class="buttonsForHeader" type="submit" value="See all employees" /></form>
+        <form action="/departments"><input class="buttonsForHeader" type="submit" value="See all departments" /></form>
+        <form action="/findEmployee"><input class="buttonsForHeader" type="submit" value="Find employee by ID" /></form>
+        <form action="/makeEmployee"><input class="buttonsForHeader" type="submit" value="Make new employee" /></form>
     </div>
 </div>
 </body>

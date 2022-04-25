@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepository implements CRUDInterface<Employee>{
+ public class EmployeeRepository implements CRUDInterface<Employee>{
 
     @Override
     public boolean create(Employee entity) {
@@ -20,8 +20,32 @@ public class EmployeeRepository implements CRUDInterface<Employee>{
     }
 
     @Override
-    public Employee getSingleEntityById() {
-        return null;
+    public Employee getSingleEntityById(int ID) {
+        Employee currentEmployee = null;
+        try {
+            Connection conn = DatabaseConnectionManager.getConnection();
+            System.out.println(ID);
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM employees  WHERE id =  '"+ID+"'");
+
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            int id = rs.getInt("id");
+            String employeeName = rs.getString("employee_Name");
+            String job = rs.getString("job");
+            int manager = rs.getInt("manager");
+            String hireDate = rs.getString("hiredate");
+            int salary = rs.getInt("salary");
+            int commision = rs.getInt("commission");
+            int departmentNumber = rs.getInt("department_number");
+            currentEmployee = new Employee(id, employeeName, job, manager, hireDate, salary, commision, departmentNumber);
+
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            System.out.println("Something wrong with database");
+        }
+        return currentEmployee;
     }
 
     @Override
