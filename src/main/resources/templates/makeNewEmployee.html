@@ -7,10 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div th:replace="fragments/general.html :: header()"></div>
+    <div th:replace="fragments/general.html :: header()"></div>
 
-<h1>Here you can make a new employee</h1>
+    <h1>Here you can make a new employee</h1>
 
+    <form method="POST" action="/createEmployee" >
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Name of employee" name="name" id="name" required>
+        <br>
+        <label for="job"><b>Job</b></label>
+        <input type="text" placeholder="Employees job" name="job" id="job" required>
+        <br>
+        <label for="manager"><b>Manager</b></label>
+        <input type="text" placeholder="Manager of employee" name="manager" id="manager" required>
+        <br>
+        <label for="hiredate"><b>Hiredate</b></label>
+        <input type="date" placeholder="Hiredate" name="hiredate" id="hiredate" required>
+        <br>
+        <label for="salary"><b>Name</b></label>
+        <input type="text" placeholder="Salary of employee" name="salary" id="salary" required>
+        <br>
+        <label for="comission"><b>Comission</b></label>
+        <input type="text" placeholder="Comission of employee" name="comission" id="comission" required>
+        <br>
+        <label for="departmentNumber"><b>Department number</b></label>
+        <input type="text" placeholder="Department number" name="departmentNumber" id="departmentNumber" required>
+
+
+    </form>
 
 </body>
 </html>
